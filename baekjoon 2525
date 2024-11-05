@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main() {
+	int a, b = 0;
+	int c=0;
+	int h, m = 0;
+
+	scanf("%d %d", &a, &b);
+	scanf("%d", &c);
+	h = c / 60;
+	m = c % 60;
+
+	if (a >= 0 && a <= 23 && b >= 0 && b <= 59 && c>=0 && c<=1000) {
+		a += h;
+		b += m;
+		if (b >= 60) {
+			a++;
+			b -= 60;
+		}
+		if (a >= 24) a %= 24;	// if(a==24) a==0; 으로 했었음
+	}
+	
+	printf("%d %d", a, b);
+
+	return 0;
+}
